@@ -1,14 +1,21 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Card,CardText,CardBody,CardSubtitle} from 'reactstrap'
 function PostShowR(props){
     return(
         <div>
             {props.post &&(
-                <div>
-                    <h2>{props.post.title}</h2>
-                    <h2>{props.post.body}</h2>
+                <div className='container'>
+                    <div className='jumbotron  text-center'>
+                    <Card>
+                        <CardBody>
+                            <CardText>Title:{props.post.title}</CardText>
+                            <CardSubtitle>Body:{props.post.body}</CardSubtitle>
+                        </CardBody>
+                    </Card>
                     <Link to='/posts'>back</Link>
+                    </div>
                     </div>
             )}
         </div>

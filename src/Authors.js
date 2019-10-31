@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import AuthorsItem from './AuthorsItem'
+
 class Authors extends React.Component{
     constructor(){
         super()
@@ -15,9 +16,10 @@ class Authors extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h2>Listing Author-{this.state.authors.length}</h2>
+            <div className='container'>
+                <h2 className='text-center'>Listing Authors-{this.state.authors.length}</h2>
                  <ul>
+                    
                      {this.state.authors.map(author=>{
                          return <AuthorsItem key={author.id}
                                              id={author.id}

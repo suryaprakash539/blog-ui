@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {ListGroup,ListGroupItem,Jumbotron} from 'reactstrap'
 class AuthorShow extends React.Component{
     constructor(props){
         super(props)
@@ -21,14 +22,18 @@ class AuthorShow extends React.Component{
     }
     render(){
         return(
-            <div>
-            <h2>NAME-{this.state.author.name}</h2>
-            <h2>{this.state.author.email}</h2>
+            <div className='container'>
+                <Jumbotron>
+            <h2 className='display-3'>NAME-{this.state.author.name}</h2>
+            <p className='lead'>{this.state.author.email}</p>
+            </Jumbotron>
             <h3>Listing posts written:</h3>
             <ul>
+                <ListGroup>
                 {this.state.posts.map(post=>{
-                    return <li key={post.id}><Link to={`/posts/${post.id}`}>{post.title}</Link></li>
+                    return <li  key={post.id}><ListGroupItem><Link to={`/posts/${post.id}`}>{post.title}</Link></ListGroupItem></li>
                 })}
+                </ListGroup>
             </ul>
          </div> 
         )

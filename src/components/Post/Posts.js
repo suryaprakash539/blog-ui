@@ -2,17 +2,29 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Row,Col,Card,CardBody,CardTitle,CardSubtitle} from 'reactstrap'
 
 function Posts(props){
     
         return(
-            <div>
-               <h2>Listing Posts-{props.posts.length}</h2>
-               <ul>
+            <div className='container'>
+               <h2 className='text-center'>Listing Posts-{props.posts.length}</h2>
+               <Row>
                   {props.posts.map(function(post){
-                      return <li key={post.id}><Link to={`/posts/${post.id}`}>{post.title}</Link></li>
+                      return (
+                          <Col sm='4' key={post.id}>
+                              <Card>
+                                  <CardBody>
+                                      <img width='100%' height='5%' src='https://picsum.photos/200/300'/>
+                                      <CardTitle>Title:{post.title} </CardTitle>
+                                      <CardSubtitle>Body:{post.body}</CardSubtitle>
+                                      <Link to={`/posts/${post.id}`}>Read More</Link>
+                                  </CardBody>
+                              </Card>
+                          </Col>
+                      )
                   })}
-               </ul>
+               </Row>
             </div>
         )
     }
