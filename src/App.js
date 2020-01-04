@@ -10,7 +10,7 @@ function App(props){
         <BrowserRouter>
          <div>
              <h1 className='text-center'>Welcome to the BLOG-UI</h1>
-         <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
+           <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
              <Link className='nav-link' to='/posts'>Posts</Link>
              <Link className='nav-link' to='/authors'>Authors</Link>
              </nav>
